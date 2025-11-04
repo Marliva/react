@@ -2,16 +2,23 @@ import React from "react";
 import "./Popup.css";
 
 export const Popup = () => {
-    let displayPopup = true;
+  // let displayPopup = true;
+  const [displayPopup, setDisplayPopup] = React.useState(true);
   const handleClick = (message) => {
     console.log(message);
-    displayPopup = !displayPopup;
-    console.log(displayPopup)
+    setDisplayPopup(!displayPopup);
+    console.log(displayPopup);
   };
   return (
     <>
-      <button onClick={()=>{handleClick ("jour")}}>PopUp</button>
-      <button onClick={()=>handleClick ("nuit")}>PupOp</button>
+      <button
+        onClick={() => {
+          handleClick("jour");
+        }}
+      >
+        PopUp
+      </button>
+      <button onClick={() => handleClick("nuit")}>PupOp</button>
       {
         /*
         condition classique : 
@@ -22,9 +29,8 @@ export const Popup = () => {
          }
         pour une ternaire -> cond ? true : false (si condition est true, sinon)
         */
-          displayPopup ? <div>Ma Super Popup</div> : <></>
+        displayPopup ? <div>Ma Super Popup</div> : <></>
       }
-
     </>
   );
 };
