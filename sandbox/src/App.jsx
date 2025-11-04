@@ -1,6 +1,7 @@
 import {MaCheckbox} from "./components/MaCheckbox/MaCheckbox";
 import {Liste} from "./components/Liste/Liste";
 import {Popup} from "./components/Popup/Popup";
+import {Compteur} from "./components/Compteur/Compteur";
 import "./App.css";
 
 
@@ -24,6 +25,7 @@ function App() {
       <MaCheckbox stateCheck={false} colorCheck="red">label 2</MaCheckbox>
       <Liste></Liste>
       <Popup></Popup>
+      <Compteur></Compteur>
     </div>
   )
 };
