@@ -1,0 +1,10 @@
+.Boutique{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-image: url(../../assets/img/citrouille.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

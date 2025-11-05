@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import TheaterComedyOutlinedIcon from '@mui/icons-material/TheaterComedyOutlined';
+import "./MenuBoutique.css";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -36,7 +37,7 @@ function MenuBoutique() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar className='navbar' position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <TheaterComedyOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -116,7 +117,7 @@ function MenuBoutique() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block', fontWeight: 800 }}
+                sx={{ my: 2, color: '#92BF45', display: 'block', fontWeight: 800 }}
               >
                 {page}
               </Button>

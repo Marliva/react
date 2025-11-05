@@ -1,15 +1,13 @@
 import React from 'react'
 import Cards from '../Cards/Cards'
-import articles from "../services/catalogue.service"
+import "./ContainerCard.css"
 
-
-
-const ContainerCard = () => {
+const ContainerCard = (props) => {
     
   return (
     <div className='Boutique'>
         {
-            articles.map((value,index)=>
+            props.catalogue.map((value,index)=>
             <Cards 
             key={index}
             costume={value}
