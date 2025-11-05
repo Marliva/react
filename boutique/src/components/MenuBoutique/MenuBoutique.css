@@ -1,3 +1,10 @@
-.navbar{
+.MuiPaper-root, .MuiPaper-elevation, .MuiPaper-elevation4, .MuiAppBar-root, .MuiAppBar-colorPrimary, .MuiAppBar-positionStatic, .navbar, .css-ptdwpq-MuiPaper-root-MuiAppBar-root{
+    background-color: rgb(0, 0, 0);
+}
+.MuiContainer-root, .MuiContainer-maxWidthXl, .css-hhdjsd-MuiContainer-root{
+    background-color: rgb(0, 0, 0);
+}
+
+.MuiToolbar-root, .MuiToolbar-regular, .css-1u9o2lj-MuiToolbar-root{
     background-color: rgb(0, 0, 0);
 }

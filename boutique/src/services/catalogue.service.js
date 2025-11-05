@@ -12,8 +12,8 @@ const articles = [
    {
      id:1,
      qte:10,
-     name:"Canard",
-     url:"/src/assets/img/shopping.webp",
+     name:"Nonne",
+     url:"/src/assets/img/nonne.jpg",
      price:350,
      promo:false,
      largeur:200,
@@ -22,8 +22,8 @@ const articles = [
     {
       id:2,
       qte:10,
-      name:"Chaton",
-      url:"/src/assets/img/aerobic.jpg",
+      name:"Chucky",
+      url:"/src/assets/img/chucky.webp",
       price:500,
       promo:true,
       largeur:200,

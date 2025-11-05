@@ -1,14 +1,16 @@
-import * as React from "react";
+import {useContext} from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import BoutiqueContext from "../../context/BoutiqueContext";
 import "./Cards.css"
 
 export default function Cards(props) {
-  console.table(props);
+  const boutiqueContext = useContext(BoutiqueContext);
+  console.log(boutiqueContext);
   return (
     <div className="maCard">
       <Card
@@ -38,7 +40,10 @@ export default function Cards(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="large">Buy</Button>
+          <Button 
+          disabled={props.costume.qte === 0 ? true : false }
+          size="large"
+          onClick={()=>  boutiqueContext.addCart(props.costume.id)}>Buy</Button>
           Quantité : {props.costume.qte}
         </CardActions>
       </Card>
