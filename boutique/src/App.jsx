@@ -4,6 +4,7 @@ import ContainerCard from "./components/ContainerCard/ContainerCard";
 import MenuBoutique from "./components/MenuBoutique/MenuBoutique";
 import articles from "./services/catalogue.service";
 import BoutiqueContext from "./context/BoutiqueContext";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const [catalogue, setCatalogue] = useState(articles);
@@ -20,11 +21,34 @@ function App() {
         }
         return value;
       });
-      console.log(catalogueTmp[id]);
+      // console.log(catalogueTmp[id]);
       setCatalogue(catalogueTmp);
-    } // } else{
 
-    // }
+      //Ajout des nouveaux articles dans le cart à partir de leur id
+      let cartTmp;
+      if (cart.length > 0) {
+        let gotIt = false;
+        cartTmp = cart.map((value, index) => {
+          if (value.id === id) {
+            value.qte++;
+            gotIt = true;
+          }
+          return value;
+        });
+        if (!gotIt) {
+          cartTmp.push({ id: id, qte: 1 });
+        }
+      } else {
+        cartTmp = [{ id: id, qte: 1 }];
+      }
+
+      cartTmp.sort();
+      setCart(cartTmp);
+      console.log(cartTmp);
+
+      //Autre formule possible :
+      // setCart([...cart, id]); //Spread Operator reprend l'entièreté du tableau (ici cart), et ajoute l'objet (ici id) derrière.
+    }
   };
   return (
     <BoutiqueContext.Provider
@@ -39,6 +63,7 @@ function App() {
       </header>
 
       <main>
+        <Cart></Cart>
         <ContainerCard catalogue={catalogue}></ContainerCard>
       </main>
 
