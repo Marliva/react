@@ -30,7 +30,7 @@ function ArticleCart(props) {
           maxWidth: 300,
         }}
       >
-        <div>-</div>
+        <div onClick={()=>boutiqueContext.removeFromCart(props.item.id)}>-</div>
         <div>{props.item.qte}</div>
         <div onClick={()=>boutiqueContext.addCart(props.item.id)}>+</div>
       </div>
