@@ -32,7 +32,7 @@ function ArticleCart(props) {
       >
         <div>-</div>
         <div>{props.item.qte}</div>
-        <div>+</div>
+        <div onClick={()=>boutiqueContext.addCart(props.item.id)}>+</div>
       </div>
       <div>Total {"??"}</div>
     </div>
