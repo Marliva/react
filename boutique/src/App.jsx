@@ -7,9 +7,13 @@ import BoutiqueContext from "./context/BoutiqueContext";
 import Cart from "./components/Cart/Cart";
 
 function App() {
+
+  //Définition de mes states
   const [catalogue, setCatalogue] = useState(articles);
   const [cart, setCart] = useState([]);
+  const [displayCart, setDisplayCart] = useState(false);
 
+  //Définition de mes fonctions
   const addCart = (id) => {
     if (catalogue[id].qte > 0) {
       // console.log("addcart " + id);
@@ -28,7 +32,7 @@ function App() {
       let cartTmp;
       if (cart.length > 0) {
         let gotIt = false;
-        cartTmp = cart.map((value, index) => {
+        cartTmp = cart.map((value) => {
           if (value.id === id) {
             value.qte++;
             gotIt = true;
@@ -118,6 +122,10 @@ function App() {
     setCart(cartTmp);
   };
 
+  const showHideCart = () => {
+    setDisplayCart(!displayCart);
+  }
+
   return (
     <BoutiqueContext.Provider
       value={{
@@ -126,6 +134,7 @@ function App() {
         addCart: addCart,
         removeFromCart: removeFromCart,
         removeAll: removeAll,
+        showHideCart: showHideCart,
       }}
     >
       <header>
@@ -133,7 +142,7 @@ function App() {
       </header>
 
       <main>
-        <Cart></Cart>
+        {displayCart&&<Cart/>}
         <ContainerCard catalogue={catalogue}></ContainerCard>
       </main>
 
