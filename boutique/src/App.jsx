@@ -71,24 +71,50 @@ function App() {
     //Je copie mon tableau cart
     const cartTmp = cart.map((value, index) => {
       //Si l'entrée à supprimer existe dans mon tableau
-      if (value.id ===id) {
+      if (value.id === id) {
         //Si sa quantité est supérieur à 1
         if (value.qte > 1) {
           //je la décrémente
           value.qte--;
-        } else { //si elle est au moins égale à 1
+        } else {
+          //si elle est au moins égale à 1
           //Je l'ajoute à mon deleteIndex en vue de la supprimer
           //de cartTmp à la fin de ma boucle
           deleteIndex = index;
+        }
       }
-    };
-    return value;
-  });
+      return value;
+    });
     // fin de boucle et suppression d'une entrée égale à 1 si elle existe
     if (deleteIndex !== undefined) {
-      cartTmp.splice(deleteIndex,1);
+      cartTmp.splice(deleteIndex, 1);
     }
     // set de mon tableau modifié dans cart
+    setCart(cartTmp);
+  };
+
+  const removeAll = (id) => {
+    // console.log("blabla",id)
+    // let trouve = catalogue.find((value) => value.id === id);
+    let indexDeleteCart = cart.findIndex((value)=>value.id===id);
+    // console.log(trouve.id,trouve.qte);
+    // console.log(indexDeleteCart);
+
+    //traitement catalogue
+    let qteTmp = cart[indexDeleteCart].qte;
+    const catalogueTmp = catalogue.map((value) => {
+      if (value.id === id) {
+        value.qte += qteTmp;
+      }
+      return value;
+    });
+    setCatalogue(catalogueTmp);
+
+    //traitement cart
+    const cartTmp = cart.map((value)=>{
+      return value;
+    });
+    cartTmp.splice(indexDeleteCart, 1);
     setCart(cartTmp);
   };
 
@@ -99,6 +125,7 @@ function App() {
         cart,
         addCart: addCart,
         removeFromCart: removeFromCart,
+        removeAll: removeAll,
       }}
     >
       <header>

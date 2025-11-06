@@ -10,7 +10,7 @@ import "./Cards.css"
 
 export default function Cards(props) {
   const boutiqueContext = useContext(BoutiqueContext);
-  console.log(boutiqueContext);
+  // console.log(boutiqueContext);
   return (
     <div className="maCard">
       <Card

@@ -32,8 +32,8 @@ const articles = [
     {
       id:3,
       qte:10,
-      name:"Mario",
-      url:"/src/assets/img/mario.jpg",
+      name:"Jigsaw",
+      url:"/src/assets/img/jigsaw.jpg",
       price:500,
       promo:true,
       largeur:200,
